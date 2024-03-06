@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+body
+  margin: 0
+
+fa-icon
+  height: min-content
+  width: min-content
+
+@for $i from 0 through 24
+  $px: #{$i * 4px}
+  .pa-#{$i}
+    padding: $px
+  .px-#{$i}
+    padding-top: $px
+    padding-bottom: $px
+  .py-#{$i}
+    padding-left: $px
+    padding-right: $px
+  .pt-#{$i}
+    padding-top: $px
+  .pr-#{$i}
+    padding-right: $px
+  .pb-#{$i}
+    padding-bottom: $px
+  .pl-#{$i}
+    padding-left: $px
+  .ma-#{$i}
+    margin: $px
+  .mx-#{$i}
+    margin-top: $px
+    margin-bottom: $px
+  .my-#{$i}
+    margin-left: $px
+    margin-right: $px
+  .mt-#{$i}
+    margin-top: $px
+  .mr-#{$i}
+    margin-right: $px
+  .mb-#{$i}
+    margin-bottom: $px
+  .ml-#{$i}
+    margin-left: $px
+
+@for $i from 0 through 6
+  $px: #{$i * 5px}
+  .rounded-#{$i}
+    border-radius: $px !important

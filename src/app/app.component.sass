@@ -1,0 +1,19 @@
+#app-wrapper
+  height: 100vh
+  width: 100vw
+  background-color: green
+
+#navigation-content
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+
+mat-card
+  width: 100%
+  & mat-card-content
+    display: grid
+    grid-template-columns: 1fr 2fr
+    column-gap: 24px
+    &>*:first-child
+      justify-self: end
