@@ -1,4 +1,4 @@
-import ApiQueryParameters from "@/api/ApiQueryParameters";
+import ApiQueryParameters from './ApiQueryParameters'
 import {defaultResponseHandler} from './ApiResponseHandler'
 export default class ApiConnector {
 

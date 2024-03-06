@@ -1,4 +1,4 @@
-import ApiConnector from "@/api/ApiConnector";
+import ApiConnector from "./api/ApiConnector";
 
 export default class User extends ApiConnector {
 
