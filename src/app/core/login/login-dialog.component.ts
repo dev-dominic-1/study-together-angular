@@ -5,8 +5,8 @@ import {MatInput} from "@angular/material/input";
 import {FormControl, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ErrorStateMatcher} from "@angular/material/core";
 import {MatButton} from "@angular/material/button";
-import Grid from "../interface/grid.component";
-import {GridSpacer} from "../interface/grid-spacer.component";
+import Grid from "../../interface/grid.component";
+import {GridSpacer} from "../../interface/grid-spacer.component";
 import {MatDialogActions, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
 
 @Component({
@@ -14,7 +14,7 @@ import {MatDialogActions, MatDialogContent, MatDialogTitle} from "@angular/mater
   selector: 'app-login',
   imports: [CommonModule, MatFormField, MatLabel, MatInput, MatError, ReactiveFormsModule, MatButton, Grid, GridSpacer, MatDialogContent, MatDialogTitle, MatDialogActions],
   templateUrl: './login-dialog.component.html',
-  styleUrls: ['/src/app/app.component.sass', './login-dialog.component.sass'],
+  styleUrl: './login-dialog.component.sass',
 })
 export class LoginDialogComponent {
 

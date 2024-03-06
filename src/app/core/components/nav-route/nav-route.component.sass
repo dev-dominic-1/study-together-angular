@@ -1,0 +1,15 @@
+\:host
+  &>div:not(.disabled)
+    cursor: pointer
+  & mat-card
+    background: transparent
+    & .default-content
+      display: grid
+      grid-template-rows: 1fr
+      grid-template-columns: 1fr 2fr
+      column-gap: 24px
+      padding: 12px
+      &::ng-deep:first-child
+        justify-self: end
+      &::ng-deep>*
+        align-self: center

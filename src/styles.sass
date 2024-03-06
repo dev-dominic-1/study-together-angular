@@ -2,9 +2,54 @@
 body
   margin: 0
 
-fa-icon
-  height: min-content
-  width: min-content
+.disabled
+  position: relative
+  pointer-events: none
+  user-select: none
+  -moz-user-select: none
+  -webkit-user-select: none
+  cursor: default !important
+  &>*
+    opacity: 0.54
+
+.hover-darken:not(.disabled)
+  position: relative
+  &:hover::after
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    background-color: rgba(0, 0, 0, 0.03)
+
+mat-icon
+  &.large
+    $size: 32px
+    font-size: $size
+    height: $size
+    width: $size
+  &.x-large
+    $size: 48px
+    font-size: $size
+    height: $size
+    width: $size
+  &.small
+    $size: 18px
+    font-size: $size
+    height: $size
+    width: $size
+  &.x-small
+    $size: 12px
+    font-size: $size
+    height: $size
+    width: $size
+  @for $i from 1 through 24
+    &.size-#{$i}
+      $size: #{$i * 4px}
+      font-size: $size
+      height: $size
+      width: $size
 
 @for $i from 0 through 24
   $px: #{$i * 4px}
@@ -45,3 +90,8 @@ fa-icon
   $px: #{$i * 5px}
   .rounded-#{$i}
     border-radius: $px !important
+
+@for $i from 0 through 10
+  $width: #{$i * 10%}
+  .width-#{$i * 10}
+    width: $width

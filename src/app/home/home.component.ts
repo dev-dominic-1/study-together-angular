@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {MatDialog} from "@angular/material/dialog";
-import {LoginDialogComponent} from "../login/login-dialog.component";
+import {LoginDialogComponent} from "../core/login/login-dialog.component";
 import {MatButton} from "@angular/material/button";
 
 @Component({

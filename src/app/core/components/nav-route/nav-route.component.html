@@ -1,0 +1,13 @@
+<div matRipple [matRippleDisabled]="disabled" class="hover-darken" [ngClass]="{disabled}" (click)="goTo()">
+  <mat-card class="navigation-item rounded-0">
+    <mat-card-content>
+      <div #ref><ng-content /></div>
+      <div class="default-content">
+        @if(!ref.childElementCount) {
+          <mat-icon aria-hidden="false" aria-label="Home" [fontIcon]="icon" class="large" />
+          <h2 class="ma-0">{{ text }}</h2>
+        }
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
