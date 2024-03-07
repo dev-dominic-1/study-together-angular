@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import {HomeComponent} from "../home/home.component";
 import {AccountComponent} from "../account/account.component";
-import {faBell, faHome, faMagnifyingGlass, faMessage, faPlusSquare, faUser} from "@fortawesome/free-solid-svg-icons";
 import {SearchComponent} from "../search/search.component";
 import {NotificationsComponent} from "../notifications/notifications.component";
 import {MessagesComponent} from "../messages/messages.component";
@@ -9,7 +8,7 @@ import {CreatePostComponent} from "../create-post/create-post.component";
 
 export const routes: Routes = [
   {
-    path: '.',
+    path: '',
     component: HomeComponent,
     data: {
       icon: 'home',
@@ -48,7 +47,8 @@ export const routes: Routes = [
     component: AccountComponent,
     data: {
       icon: 'account_circle',
-      text: 'Account'
+      text: 'Account',
+      loginRequired: true,
     }
   },
   {

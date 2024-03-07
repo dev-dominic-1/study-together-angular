@@ -1,0 +1,26 @@
+<form class="login-form" [formGroup]="form">
+  <grid [cols]="[1]" maxWidth="450px" margin="auto" >
+    <mat-form-field appearance="outline" class="login-form-input pt-4">
+      <mat-label>Email</mat-label>
+      <input type="text" matInput formControlName="email">
+      @if (form.get('email')?.hasError('required')) {
+        <mat-error>Email is required</mat-error>
+      } @else if (form.get('email')?.hasError('email')) {
+        <mat-error>Please provide a valid email address</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="login-form-input pt-4">
+      <mat-label>Password</mat-label>
+      <input [type]="showPassword ? 'text' : 'password'" matInput formControlName="password">
+      @if (form.get('password')?.hasError('required')) {
+        <mat-error>Password is required.</mat-error>
+      } @else if (form.get('password')?.hasError('minLength')) {
+        <mat-error>Password is too short. Must be at least 8 characters.</mat-error>
+      }
+      <mat-icon matSuffix matRipple class="material-icon-outlined rounded-6 hover-darken" (click)="showPassword = true">
+        <span>close</span>
+      </mat-icon>
+    </mat-form-field>
+    {{ form.get('password')?.value }}
+  </grid>
+</form>
