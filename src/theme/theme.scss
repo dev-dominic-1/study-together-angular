@@ -1,0 +1,24 @@
+@use "../../node_modules/@angular/material/index" as mat;
+@include mat.core();
+@import "primary-palette";
+@import "accent-palette";
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@include mat.all-component-themes(mat.define-light-theme((
+  color: (
+    primary: mat.define-palette($md-palette, 500),
+    accent: mat.define-palette($md-accentpalette, 500),
+    warn: mat.define-palette(mat.$red-palette)
+  )
+)));
+@include mat.all-component-typographies(mat.define-typography-config(
+  $font-family: 'Montserrat',
+  $headline-1: mat.define-typography-level($font-size: 32px),
+  $headline-2: mat.define-typography-level($font-size: 24px),
+  $headline-3: mat.define-typography-level($font-size: 24px, $font-weight: bold),
+  $body-1: mat.define-typography-level($font-size: 16px),
+  $body-2: mat.define-typography-level($font-size: 16px, $font-family: 'Hind'),
+  $subtitle-1: mat.define-typography-level($font-size: 14px, $font-family: 'Hind'),
+  $subtitle-2: mat.define-typography-level($font-size: 14px, $font-family: 'Hind', $font-weight: bold),
+  $button: mat.define-typography-level($font-size: 16px, $font-weight: 500)
+));
