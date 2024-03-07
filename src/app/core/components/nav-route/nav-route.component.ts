@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from "@angular/core";
-import {Route, Router} from "@angular/router";
+import {NavigationEnd, Route, Router} from "@angular/router";
 import {MatRipple} from "@angular/material/core";
 import {MatCard, MatCardContent} from "@angular/material/card";
 import {NgClass} from "@angular/common";
@@ -33,7 +33,11 @@ export class NavRouteComponent implements OnInit {
 
   currentRoute: boolean = false
 
-  constructor(private router: Router, private dialog: MatDialog) {}
+  constructor(private router: Router, private dialog: MatDialog) {
+    router.events.subscribe((v) => {
+      if (v instanceof NavigationEnd) this.currentRoute = this.checkCurrentRoute(this.path)
+    })
+  }
 
   /**
    * Unpack Route object passed in
@@ -47,7 +51,16 @@ export class NavRouteComponent implements OnInit {
     this.icon = icon
     this.disabled = disabled
     this.loginRequired = loginRequired
-    this.currentRoute = this.router.url === `/${path}`
+    this.currentRoute = this.checkCurrentRoute(path)
+  }
+
+  /**
+   * Check if the inputted `path` matches the router's current `url`
+   * @param {string} path Raw path, does NOT include `/` prefix
+   * @private
+   */
+  private checkCurrentRoute(path: string): boolean {
+    return this.router.url === `/${path}`
   }
 
   /**

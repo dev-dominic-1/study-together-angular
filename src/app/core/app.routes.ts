@@ -57,7 +57,7 @@ export const routes: Routes = [
     data: {
       icon: 'add_box',
       text: 'Create Post',
-      disabled: true,
+      disabled: false,
     }
   }
 ];
