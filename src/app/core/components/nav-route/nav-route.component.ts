@@ -31,6 +31,8 @@ export class NavRouteComponent implements OnInit {
   disabled: boolean = false
   loginRequired: boolean = false
 
+  currentRoute: boolean = false
+
   constructor(private router: Router, private dialog: MatDialog) {}
 
   /**
@@ -45,6 +47,7 @@ export class NavRouteComponent implements OnInit {
     this.icon = icon
     this.disabled = disabled
     this.loginRequired = loginRequired
+    this.currentRoute = this.router.url === `/${path}`
   }
 
   /**

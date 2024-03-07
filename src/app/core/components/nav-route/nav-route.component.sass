@@ -13,3 +13,14 @@
         justify-self: end
       &::ng-deep>*
         align-self: center
+
+.icon-wrapper:has(.current-route-marker)
+  position: relative
+  &>.current-route-marker
+    position: absolute
+    bottom: 4px
+    left: 4px
+    height: 4px
+    width: 24px
+    border-radius: 5px
+    background: black

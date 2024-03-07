@@ -4,7 +4,12 @@
       <div #ref><ng-content /></div>
       <div class="default-content">
         @if(!ref.childElementCount) {
-          <mat-icon aria-hidden="false" aria-label="Home" [fontIcon]="icon" class="material-icons-outlined large" />
+          <div class="icon-wrapper">
+            <mat-icon aria-hidden="false" aria-label="Home" [fontIcon]="icon" class="material-icons-outlined large" />
+            @if(currentRoute) {
+              <div class="current-route-marker"></div>
+            }
+          </div>
           <div class="ma-0 mat-headline-3">{{ text }}</div>
         }
       </div>
