@@ -5,7 +5,7 @@ import {fadeAnimation} from "../core/animations/animations";
   standalone: true,
   templateUrl: './account.component.html',
   selector: 'account',
-  animations: [fadeAnimation()]
+  animations: [fadeAnimation('50ms')]
 })
 export class AccountComponent {
   @HostBinding('@fadeAnimation') routeAnimation = true
