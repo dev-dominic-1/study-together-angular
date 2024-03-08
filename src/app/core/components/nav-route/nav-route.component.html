@@ -7,7 +7,7 @@
           <div class="icon-wrapper">
             <mat-icon aria-hidden="false" aria-label="Home" [fontIcon]="icon" class="material-icons-outlined large" />
             @if(currentRoute) {
-              <div class="current-route-marker"></div>
+              <div class="current-route-marker" [@growAnimation]></div>
             }
           </div>
           <div class="ma-0 mat-headline-3">{{ text }}</div>
