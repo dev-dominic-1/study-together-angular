@@ -5,8 +5,8 @@
         <nav-route [route]="route" />
       }
     </div>
-    <div id="router-content">
-      <router-outlet />
+    <div id="router-content" [@routeAnimations]>
+      <router-outlet #outlet="outlet" />
     </div>
   </grid>
 </div>

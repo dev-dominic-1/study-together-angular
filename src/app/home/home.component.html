@@ -1,3 +1,11 @@
-<button mat-stroked-button color="primary" (click)="openDialog()">
-  Open Dialog
-</button>
+<div class="home-wrapper">
+  <div class="tabs-wrapper">
+    <mat-tab-group [selectedIndex]="currentTab" animationDuration="250ms">
+      @for(tab of tabs; track tab.text) {
+        <mat-tab [label]="tab.text">
+          <ng-container *ngComponentOutlet="tab.component" />
+        </mat-tab>
+      }
+    </mat-tab-group>
+  </div>
+</div>

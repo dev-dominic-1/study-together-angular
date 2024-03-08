@@ -6,19 +6,20 @@ import {NgClass} from "@angular/common";
 import {MatIcon, MatIconModule} from "@angular/material/icon";
 import {MatDialog} from "@angular/material/dialog";
 import {LoginDialogComponent} from "../../login/login-dialog.component";
-import {animate, style, transition, trigger} from "@angular/animations";
+import {animate, style} from "@angular/animations";
+import AnimationBuilder from "../../animations/AnimationBuilder";
 
 @Component({
   standalone: true,
   templateUrl: './nav-route.component.html',
   selector: 'nav-route',
   animations: [
-    trigger('growAnimation', [
-      transition(':enter', [
+    AnimationBuilder.start('growAnimation')
+      .setEnter([
         style({transform: 'scaleX(0)'}),
         animate('110ms cubic-bezier(.7,.6,.5,1)', style({transform: 'scaleX(1)'}))
       ])
-    ])
+      .getTrigger(),
   ],
   imports: [
     MatRipple,
