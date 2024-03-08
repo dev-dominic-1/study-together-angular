@@ -4,7 +4,7 @@ import {LoginDialogComponent} from "../core/login/login-dialog.component";
 import {MatButton} from "@angular/material/button";
 import {MatTab, MatTabGroup} from "@angular/material/tabs";
 import {FriendsComponent} from "./friends.component";
-import {NgComponentOutlet} from "@angular/common";
+import {NgClass, NgComponentOutlet} from "@angular/common";
 import {TrendingComponent} from "./trending.component";
 import {fadeAnimation} from "../core/animations/animations";
 
@@ -14,18 +14,19 @@ import {fadeAnimation} from "../core/animations/animations";
     MatButton,
     MatTabGroup,
     MatTab,
-    NgComponentOutlet
+    NgComponentOutlet,
+    NgClass
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.sass',
+  styleUrls: ['/src/styles.background-variables.scss', './home.component.sass'],
   animations: [fadeAnimation('50ms')]
 })
 export class HomeComponent {
   @HostBinding('@fadeAnimation') routeAnimation = true
 
-  currentTab: number = 0
-  tabs: {text: string, component: any}[] = [
-    {text: 'Trending', component: TrendingComponent},
+  currentTab: number = 1
+  tabs: {text: string, disabled?: boolean, component: any}[] = [
+    {text: 'Trending', disabled: true, component: TrendingComponent},
     {text: 'Friends', component: FriendsComponent}
   ]
 

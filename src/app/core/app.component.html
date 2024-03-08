@@ -1,12 +1,12 @@
 <div id="app-wrapper">
   <grid [cols]="['350px', 'auto']">
-    <div id="navigation-content" class="mat-elevation-z4">
+    <div id="navigation-content" class="mat-elevation-z4 background">
       @for(route of routes; track route.path) {
         <nav-route [route]="route" />
       }
     </div>
-    <div id="router-content" [@routeAnimations]>
-      <router-outlet #outlet="outlet" />
+    <div id="router-content">
+      <router-outlet />
     </div>
   </grid>
 </div>

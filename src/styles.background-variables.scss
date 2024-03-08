@@ -1,0 +1,42 @@
+@use "sass:map";
+$app-background-color: #FCFDF6;
+
+$background-repeat: no-repeat;
+$background-attachment: local;
+
+// BACKGROUND OPTION _1_ CONFIG
+$background-image-1: url(./assets/Images/Desktop/Home/Background/ellipse-left-bottom.png) no-repeat fixed,
+  url(./assets/Images/Desktop/Home/Background/ellipse-left-middle.png) no-repeat fixed,
+  url(./assets/Images/Desktop/Home/Background/ellipse-left-top.png) no-repeat fixed,
+  url(./assets/Images/Desktop/Home/Background/ellipse-right-bottom.png) no-repeat fixed,
+  url(./assets/Images/Desktop/Home/Background/ellipse-right-middle.png) no-repeat fixed,
+  url(./assets/Images/Desktop/Home/Background/ellipse-right-top.png) no-repeat fixed;
+$background-position-1: left top 50%,
+  left 10% top 30%,
+  left 20% top 30%,
+  top right,
+  top -3% right -5%,
+  top -6% right -10%;
+$background-size-1: 35%;
+$background-image-config-1: (
+  "image": $background-image-1,
+  "position": $background-position-1,
+  "size": $background-size-1,
+  "repeat": $background-repeat,
+  "attach": $background-attachment
+);
+
+// BACKGROUND OPTION _2_ CONFIG
+$background-image-2: url(./assets/Images/Desktop/Profile/Background/ellipse-bottom.png),
+  url(./assets/Images/Desktop/Profile/Background/ellipse-middle.png),
+  url(./assets/Images/Desktop/Profile/Background/ellipse-top.png);
+$background-position-2: left -15% top -15%, left -23% top -25%, left -30% top -10%;
+$background-size-2: 60%;
+
+$background-image-config-2: (
+  "image": $background-image-2,
+  "position": $background-position-2,
+  "size": $background-size-2,
+  "repeat": $background-repeat,
+  "attach": $background-attachment
+)

@@ -5,6 +5,7 @@ import {fadeAnimation} from "../core/animations/animations";
   standalone: true,
   selector: 'create-post',
   templateUrl: './create-post.component.html',
+  styleUrl: './create-post.component.sass',
   animations: [fadeAnimation('50ms')]
 })
 export class CreatePostComponent {

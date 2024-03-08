@@ -1,6 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./styles.background-variables"
 body
   margin: 0
+  overflow: hidden
+  background-color: $app-background-color
+
+.background
+  background-color: $app-background-color !important
+
+.route-page-wrapper
+  height: 100vh
+  max-height: 100vh
+  overflow-y: scroll
 
 .disabled
   position: relative

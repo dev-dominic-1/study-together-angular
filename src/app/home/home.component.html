@@ -1,8 +1,8 @@
-<div class="home-wrapper">
+<div class="route-page-wrapper">
   <div class="tabs-wrapper">
     <mat-tab-group [selectedIndex]="currentTab" animationDuration="250ms">
       @for(tab of tabs; track tab.text) {
-        <mat-tab [label]="tab.text">
+        <mat-tab [label]="tab.text" [disabled]="tab.disabled">
           <ng-container *ngComponentOutlet="tab.component" />
         </mat-tab>
       }

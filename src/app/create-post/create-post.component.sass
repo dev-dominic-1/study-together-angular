@@ -1,14 +1,11 @@
 @use "sass:map"
 @import "../../styles.background-variables"
-$background-config: $background-image-config-1
+
+$background-config: $background-image-config-2
+
 .route-page-wrapper
-  padding-top: 48px
   background: map.get($background-config, "image")
   background-position: map.get($background-config, "position")
   background-size: map.get($background-config, "size")
-  &::ng-deep
-    & mat-tab-header
-      width: min-content
-      padding: 0 48px
-    & .mdc-tab__content
-      font-size: 24px
+  background-repeat: map.get($background-config, "repeat")
+  background-attachment: map.get($background-config, "attach")
