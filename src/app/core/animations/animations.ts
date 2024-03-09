@@ -12,7 +12,7 @@ export function fadeAnimation(timing: string = defaultTiming, name?:string) {
 }
 
 export function growXAnimation(timing: string = defaultTiming, name?:string) {
-  return AnimationBuilder.start(name ??'growAnimation')
+  return AnimationBuilder.start(name ??'growXAnimation')
     .setEnter([
       style({transform: 'scaleX(0)'}),
       animate('110ms cubic-bezier(.7,.6,.5,1)', style({transform: 'scaleX(1)'}))

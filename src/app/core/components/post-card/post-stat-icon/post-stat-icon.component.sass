@@ -1,0 +1,50 @@
+@use "@angular/material/index" as mat
+@import "../../../../../theme/accent-palette"
+@include mat.core()
+
+$background-color: mat.get-color-from-palette($md-accentpalette, 400)
+$expanded-backdrop-color: mat.get-color-from-palette($md-accentpalette, 700)
+$content-color: mat.get-color-from-palette($md-accentpalette, custom-dark)
+
+.wrapper
+  z-index: 1
+  cursor: pointer
+  position: relative
+  display: flex
+  align-content: center
+  background-color: $background-color
+  border-radius: 999px
+  color: $content-color
+  &>mat-icon
+    background-color: $background-color
+    padding: 8px
+    border-radius: inherit
+  &>.expanded-content
+    overflow: hidden
+    align-self: center
+    white-space: nowrap
+    text-align: center
+    font-weight: 600
+  &.content-expanded::before
+    z-index: -1
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    height: 100%
+    width: 100%
+    transform: translate(-50%, -50%)
+    background-color: red
+    border-radius: inherit
+    animation: 0.4s forwards expand-backdrop
+
+@keyframes expand-backdrop
+  0%
+    height: 100%
+    width: 100%
+    background-color: $background-color
+  100%
+    $calc-dimension: calc(100% + 12px)
+    height: $calc-dimension
+    width: $calc-dimension
+    background-color: $expanded-backdrop-color

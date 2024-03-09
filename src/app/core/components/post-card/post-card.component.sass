@@ -1,0 +1,67 @@
+@use "@angular/material/index" as mat
+@import "../../../../styles.background-variables"
+@import "../../../../theme/accent-palette"
+@include mat.core()
+
+mat-icon
+  color: grey
+
+.user-content
+  margin-bottom: 12px
+  display: flex
+  justify-content: space-between
+  &>div
+    display: inherit
+  & .user-text-content
+    display: inherit
+    flex-direction: column
+    justify-content: space-evenly
+    & span.bold
+      font-weight: bold
+    & span.mat-subtitle-1
+      color: grey
+  &>.post-stat-content
+    align-items: center
+
+.image-content
+  display: grid
+  grid-template-columns: 1fr 1fr
+  grid-column-gap: 24px
+  padding: 0 24px
+  &>mat-card // Override styles set by `rounded-#{$i}`
+    border-bottom-left-radius: 0 !important
+    border-bottom-right-radius: 0 !important
+    min-height: 300px
+    &>mat-card-content
+      height: 100%
+      display: flex
+      align-items: center
+      justify-content: center
+
+mat-card-actions
+  padding-top: 0
+  padding-bottom: 0
+  &>div
+    display: flex
+    width: 100%
+    justify-content: space-between
+    &>*
+      display: inherit
+      justify-content: center
+      &:first-child
+        justify-content: start
+      &:last-child
+        justify-content: end
+
+  position: relative
+  &::after
+    content: ''
+    position: absolute
+    margin: auto
+    top: 0
+    left: 50%
+    transform: translateX(-50%)
+    width: 95%
+    height: 2px
+    background-color: lightgrey
+    border-radius: 5px

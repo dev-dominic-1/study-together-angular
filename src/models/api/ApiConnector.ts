@@ -1,15 +1,15 @@
 import ApiQueryParameters from './ApiQueryParameters'
 import {defaultResponseHandler} from './ApiResponseHandler'
-export default class ApiConnector {
+export class ApiConnector {
 
-  #context
-  #url = 'http://localhost:5150/'
-  #baseEndpoint
-  #endpoint
-  #queryParameters
-  #options = {mode: 'cors'}
-  #suppress
-  #suppressCritical
+  #context!: any
+  #url: string = 'http://localhost:5150/'
+  #baseEndpoint: string
+  #endpoint: string
+  #queryParameters: ApiQueryParameters
+  #options: {} = {mode: 'cors'}
+  #suppress: boolean = false
+  #suppressCritical: boolean = false
 
   /**
    * Initialize an ApiConnector with a given endpoint, additional path for url
@@ -19,10 +19,10 @@ export default class ApiConnector {
    * @param {Array<String>} adtlUrl Additional route information
    * @param queryParameters
    */
-  constructor (context, endpoint, adtlUrl = [], queryParameters = new ApiQueryParameters()) {
+  constructor (context: any, endpoint: string, adtlUrl?: string[], queryParameters: ApiQueryParameters = new ApiQueryParameters()) {
     this.#context = context
     this.#baseEndpoint = endpoint
-    this.#endpoint = ['api', endpoint, ...adtlUrl].join('/')
+    this.#endpoint = ['api', endpoint, ...(adtlUrl ?? [])].join('/')
     this.#queryParameters = queryParameters
   }
 
@@ -50,7 +50,7 @@ export default class ApiConnector {
     return this
   }
 
-  withAdditionalUrl (...adtlUrl) {
+  withAdditionalUrl (...adtlUrl: string[]) {
     this.#endpoint = ['api', this.#baseEndpoint, ...adtlUrl].join('/')
     return this
   }
@@ -68,6 +68,6 @@ export default class ApiConnector {
   }
 
   async save () {
-    defaultResponseHandler(fetch())
+    // defaultResponseHandler(fetch())
   }
 }

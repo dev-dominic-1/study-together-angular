@@ -26,11 +26,12 @@ export default class AnimationBuilder {
   }
 
   private setAnimation (selector: string, steps: (AnimationStyleMetadata | AnimationAnimateMetadata | AnimationQueryMetadata)[], isQuery?: boolean, stateChangeExpr?: string) {
+    const setProperty: 'leave' | 'enter' = selector === ':leave' ? 'leave' : 'enter'
     if (isQuery) {
-      this.enter = transition(stateChangeExpr ?? '* <=> *', [
+      this[setProperty] = transition(stateChangeExpr ?? '* <=> *', [
         query(selector, steps)
       ])
-    } else this.enter = transition(selector, steps)
+    } else this[setProperty] = transition(selector, steps)
     return this
   }
 

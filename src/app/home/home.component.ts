@@ -19,7 +19,7 @@ import {fadeAnimation} from "../core/animations/animations";
   ],
   templateUrl: './home.component.html',
   styleUrls: ['/src/styles.background-variables.scss', './home.component.sass'],
-  animations: [fadeAnimation('50ms')]
+  animations: [fadeAnimation()]
 })
 export class HomeComponent {
   @HostBinding('@fadeAnimation') routeAnimation = true

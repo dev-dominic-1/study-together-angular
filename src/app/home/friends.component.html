@@ -1,1 +1,5 @@
-<div>FRIENDS PAGE</div>
+<div class="primary-content-page-wrapper">
+  @for(post of posts; track post) {
+    <post-card [post]="post" />
+  }
+</div>

@@ -5,7 +5,7 @@ import {fadeAnimation} from "../core/animations/animations";
   standalone: true,
   selector: 'messages',
   templateUrl: './messages.component.html',
-  animations: [fadeAnimation('50ms')]
+  animations: [fadeAnimation()]
 })
 export class MessagesComponent {
   @HostBinding('@fadeAnimation') routeAnimation = true

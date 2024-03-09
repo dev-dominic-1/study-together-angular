@@ -5,7 +5,7 @@ import {fadeAnimation} from "../core/animations/animations";
   standalone: true,
   selector: 'search',
   templateUrl: './search.component.html',
-  animations: [fadeAnimation('50ms')]
+  animations: [fadeAnimation()]
 })
 export class SearchComponent {
   @HostBinding('@fadeAnimation') routeAnimation = true

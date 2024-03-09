@@ -1,22 +1,22 @@
 export default class ApiQueryParameters {
 
-  #parameters
+  #parameters: {[key: string]: string}
 
   constructor (initParams = {}) {
     this.#parameters = initParams
   }
 
-  addParameter (key, value) {
+  addParameter (key: string, value: any) {
     this.#parameters[key] = value
   }
 
-  removeParameter (key) {
+  removeParameter (key: string) {
     delete this.#parameters[key]
   }
 
   toQueryString () {
     let result = Object.entries(this.#parameters).reduce(
-      (acc, [key, value]) => [...acc, `${key}=${value}`], []
+      (acc: string[], [key, value]): string[] => [...acc, `${key}=${value}`], []
     )
     return `?${result.join('&&')}`
   }

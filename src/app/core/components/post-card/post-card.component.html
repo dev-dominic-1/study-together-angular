@@ -1,0 +1,38 @@
+<mat-card class="background">
+  <mat-card-content class="mat-body-2">
+    <div class="user-content">
+      <div>
+        <mat-icon class="material-icon-outlined x-large rounded-6 mat-elevation-z4">
+          account_circle
+        </mat-icon>
+        <div class="user-text-content pl-4">
+          <span class="bold mat-subtitle-2">{{ post.username }}</span>
+          <span class="mat-subtitle-1 mb-0">{{ post.timestamp }}</span>
+        </div>
+      </div>
+      <div class="post-stat-content">
+        @if(post.stat != undefined) {
+          <post-stat-icon [postStat]="post.stat" />
+        }
+      </div>
+    </div>
+    <div class="pt-6 px-8 pb-3 mat-body-2">
+      {{ post.content }}
+    </div>
+    <div class="image-content mt-3">
+      <mat-card class="rounded-2">
+        <mat-card-content>CONTENT</mat-card-content>
+      </mat-card>
+      <mat-card class="rounded-2">
+        <mat-card-content>CONTENT</mat-card-content>
+      </mat-card>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="px-6">
+      <mat-icon class="large" [ngClass]="{'material-icon-outlined': !post.liked}">favorite</mat-icon>
+      <button mat-button color="grey">Comment</button>
+      <mat-icon class="large">ios_share</mat-icon>
+    </div>
+  </mat-card-actions>
+</mat-card>
