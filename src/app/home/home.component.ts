@@ -7,6 +7,9 @@ import {FriendsComponent} from "./friends.component";
 import {NgClass, NgComponentOutlet} from "@angular/common";
 import {TrendingComponent} from "./trending.component";
 import {fadeAnimation} from "../core/animations/animations";
+import {MatAutocomplete, MatAutocompleteTrigger, MatOption} from "@angular/material/autocomplete";
+import {MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatInput} from "@angular/material/input";
 
 @Component({
   standalone: true,
@@ -15,7 +18,13 @@ import {fadeAnimation} from "../core/animations/animations";
     MatTabGroup,
     MatTab,
     NgComponentOutlet,
-    NgClass
+    NgClass,
+    MatAutocomplete,
+    MatAutocompleteTrigger,
+    MatFormField,
+    MatInput,
+    MatLabel,
+    MatOption,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['/src/styles.background-variables.scss', './home.component.sass'],
@@ -31,6 +40,7 @@ export class HomeComponent {
   ]
 
   constructor(public dialog: MatDialog) {}
+
   openDialog() {
     this.dialog.open(LoginDialogComponent)
   }
