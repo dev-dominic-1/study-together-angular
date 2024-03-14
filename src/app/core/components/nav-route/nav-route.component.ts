@@ -4,7 +4,7 @@ import {MatRipple} from "@angular/material/core";
 import {MatCard, MatCardContent} from "@angular/material/card";
 import {NgClass} from "@angular/common";
 import {MatIcon, MatIconModule} from "@angular/material/icon";
-import {MatDialog} from "@angular/material/dialog";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {LoginDialogComponent} from "../../login/login-dialog.component";
 import {animate, style} from "@angular/animations";
 import AnimationBuilder from "../../animations/AnimationBuilder";
@@ -74,7 +74,9 @@ export class NavRouteComponent implements OnInit {
    */
   async goTo (route?: Route, overrideLogin?: boolean) {
     if (this.loginRequired && !overrideLogin) { // Intercept nav if login is required
-      let ref = this.dialog.open(LoginDialogComponent)
+      let config = new MatDialogConfig()
+      config.maxWidth = '100%' // Prevent horizontal scrolling and fit content
+      let ref = this.dialog.open(LoginDialogComponent, config)
       ref.componentInstance.onSuccess.subscribe((data) => {
         console.log('CAPTURED EVENT', data)
       })

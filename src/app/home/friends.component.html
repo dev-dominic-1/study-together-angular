@@ -1,13 +1,14 @@
 <div class="primary-content-page-wrapper">
   <div class="content-selector-wrapper">
     <mat-form-field>
-      <input type="text" #input matInput [matAutocomplete]="autocomplete" [formControl]="stateCtrl">
-      <mat-autocomplete #autocomplete [displayWith]="contentSelectorDisplayFn">
+      <mat-select [formControl]="stateCtrl">
+        <mat-select-trigger>
+          {{ contentOptionsMap[contentOption] ?? 'None Selected' }}
+        </mat-select-trigger>
         @for (option of ContentOptions.values; track option.key) {
           <mat-option [value]="option.key">{{ option.text }}</mat-option>
         }
-      </mat-autocomplete>
-      <mat-icon matSuffix>expand_more</mat-icon>
+      </mat-select>
     </mat-form-field>
   </div>
   @for(post of posts; track post) {

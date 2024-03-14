@@ -10,6 +10,7 @@ import {MatInputModule} from "@angular/material/input";
 import {ContentOptions} from "./enums/ContentOptions";
 import {MatIcon} from "@angular/material/icon";
 import {RotatorComponent} from "../core/components/helpers/rotator.component";
+import {MatSelect, MatSelectTrigger} from "@angular/material/select";
 
 @Component({
   standalone: true,
@@ -25,6 +26,8 @@ import {RotatorComponent} from "../core/components/helpers/rotator.component";
     MatAutocompleteTrigger,
     MatIcon,
     RotatorComponent,
+    MatSelect,
+    MatSelectTrigger,
   ],
   templateUrl: './friends.component.html',
   styleUrl: './friends.component.sass'
@@ -35,6 +38,11 @@ export class FriendsComponent implements OnInit {
 
   contentOption: string = ContentOptions.MOST_RELEVANT.key
 
+  contentOptionsMap: {[key: string]: string} = ContentOptions.values
+    .reduce((acc: {[key: string]: string}, r): {[key: string]: string} => {
+      acc[r.key] = r.text
+      return acc
+    }, {})
   stateCtrl!: FormControl
 
   constructor() {

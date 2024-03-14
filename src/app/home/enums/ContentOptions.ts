@@ -10,7 +10,7 @@ export class ContentOptions {
 
   static readonly values: ContentOptions[] = [ContentOptions.MOST_RECENT, ContentOptions.MOST_RELEVANT]
 
-  static fromEnum(v: ContentOptionsEnum): ContentOptions | undefined {
+  static fromEnum(v: ContentOptionsEnum | string): ContentOptions | undefined {
     return this.values.find(val => val.key === v)
   }
 
