@@ -1,0 +1,19 @@
+// Keeping rwd-specific core styles in centralized location
+$tablet-breakpoint: 1000px
+$mobile-breakpoint: 680px
+
+// Surface these breakpoints on the DOM
+body
+  --tablet-breakpoint: #{$tablet-breakpoint}
+  --mobile-breakpoint: #{$mobile-breakpoint}
+  --current-breakpoint: desktop
+
+@media (width < $tablet-breakpoint)
+  body
+    --current-breakpoint: tablet
+
+@media (width < $mobile-breakpoint)
+  body
+    --current-breakpoint: mobile
+  .app-grid-layout
+    grid-template-columns: 0fr 100vw !important

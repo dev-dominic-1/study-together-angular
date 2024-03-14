@@ -1,4 +1,10 @@
-<div matRipple [matRippleDisabled]="disabled" class="hover-darken" [ngClass]="{disabled}" (click)="goTo()">
+<div
+  matRipple
+  [matRippleDisabled]="disabled"
+  class="hover-darken"
+  [ngClass]="{disabled}"
+  (click)="goTo()"
+>
   <mat-card class="navigation-item rounded-0">
     <mat-card-content>
       <div #ref><ng-content /></div>

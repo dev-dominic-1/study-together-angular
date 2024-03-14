@@ -30,6 +30,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/styles.rwd.sass",
               "src/theme/theme.scss",
               "src/styles.sass"
             ],

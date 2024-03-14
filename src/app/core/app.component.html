@@ -1,12 +1,17 @@
 <div id="app-wrapper">
-  <grid [cols]="['350px', 'auto']">
+  <div class="app-grid-layout">
     <div id="navigation-content" class="mat-elevation-z4 background">
-      @for(route of routes; track route.path) {
+      @for(route of _routes; track route.path) {
         <nav-route [route]="route" />
       }
     </div>
     <div id="router-content">
       <router-outlet />
     </div>
-  </grid>
+  </div>
+  <div id="collapsible-navigation-activator">
+    <!-- TODO This is really verbose, consider a better naming scheme -->
+    <div id="collapsible-navigation-activator-background-element"></div>
+    <mat-icon>arrow_right</mat-icon>
+  </div>
 </div>

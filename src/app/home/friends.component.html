@@ -2,7 +2,6 @@
   <div class="content-selector-wrapper">
     <mat-form-field>
       <input type="text" matInput [matAutocomplete]="autocomplete" [formControl]="stateCtrl">
-      <mat-label>Content Preference</mat-label>
       <mat-autocomplete #autocomplete [displayWith]="contentSelectorDisplayFn">
         @for (option of ContentOptions.values; track option.key) {
           <mat-option [value]="option.key">{{ option.text }}</mat-option>

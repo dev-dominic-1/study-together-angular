@@ -1,3 +1,9 @@
+@import "../../styles.rwd"
+
+.app-grid-layout
+  display: grid
+  grid-template-columns: 350px calc(100vw - 350px)
+
 #app-wrapper
   height: 100vh
   width: 100vw
@@ -12,3 +18,31 @@
   &::-webkit-scrollbar
     width: 0
   scrollbar-width: none
+
+// Handle navigation bar AND nav-route elements here
+@media (width < $tablet-breakpoint)
+  .app-grid-layout::ng-deep
+    grid-template-columns: 100px calc(100vw - 100px)
+    & .default-content
+      &>div:last-child
+        display: none
+      &>div:first-child
+        justify-self: center !important
+      grid-template-columns: 1fr !important
+      padding: 0 12px !important
+
+@media (width < $mobile-breakpoint)
+  .app-grid-layout
+    grid-template-columns: 100vw !important
+
+    //Nav-elements
+    &>#navigation-content
+      position: fixed
+      bottom: 0
+      left: 0
+      flex-direction: row !important
+      height: min-content !important
+      width: 100vw
+      justify-content: space-around
+
+

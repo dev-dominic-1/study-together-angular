@@ -1,6 +1,8 @@
 @use "sass:map"
 @import "../../styles.background-variables"
 $background-config: $background-image-config-1
+\:host::ng-deep .mat-mdc-tab-body-content
+  overflow-x: hidden
 .route-page-wrapper
   padding-top: 48px
   background: map.get($background-config, "image")
@@ -12,3 +14,7 @@ $background-config: $background-image-config-1
       padding: 0 48px
     & .mdc-tab__content
       font-size: 24px
+    & .mdc-tab--active
+      font-weight: 600
+    & .mat-mdc-tab-disabled
+      opacity: 1
