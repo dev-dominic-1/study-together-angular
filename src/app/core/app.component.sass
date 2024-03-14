@@ -20,7 +20,7 @@
   scrollbar-width: none
 
 // Handle navigation bar AND nav-route elements here
-@media (width < $tablet-breakpoint)
+@media (width <= $tablet-breakpoint)
   .app-grid-layout::ng-deep
     grid-template-columns: 100px calc(100vw - 100px)
     & .default-content
@@ -31,7 +31,7 @@
       grid-template-columns: 1fr !important
       padding: 0 12px !important
 
-@media (width < $mobile-breakpoint)
+@media (width <= $mobile-breakpoint)
   .app-grid-layout
     grid-template-columns: 100vw !important
 
@@ -46,5 +46,9 @@
       justify-content: space-around
       border-radius: 15px 15px 0 0
       box-shadow: 0 5px 15px gray
+      z-index: 10
+
+    &::ng-deep .route-page-wrapper>div:last-child
+      padding-bottom: 48px
 
 
