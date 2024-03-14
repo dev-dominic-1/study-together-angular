@@ -8,6 +8,8 @@ import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {FormControl, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {ContentOptions} from "./enums/ContentOptions";
+import {MatIcon} from "@angular/material/icon";
+import {RotatorComponent} from "../core/components/helpers/rotator.component";
 
 @Component({
   standalone: true,
@@ -21,6 +23,8 @@ import {ContentOptions} from "./enums/ContentOptions";
     ReactiveFormsModule,
     MatInputModule,
     MatAutocompleteTrigger,
+    MatIcon,
+    RotatorComponent,
   ],
   templateUrl: './friends.component.html',
   styleUrl: './friends.component.sass'

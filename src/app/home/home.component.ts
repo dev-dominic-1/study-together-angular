@@ -10,6 +10,7 @@ import {fadeAnimation} from "../core/animations/animations";
 import {MatAutocomplete, MatAutocompleteTrigger, MatOption} from "@angular/material/autocomplete";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
+import {RotatorComponent} from "../core/components/helpers/rotator.component";
 
 @Component({
   standalone: true,
@@ -25,6 +26,7 @@ import {MatInput} from "@angular/material/input";
     MatInput,
     MatLabel,
     MatOption,
+    RotatorComponent,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['/src/styles.background-variables.scss', './home.component.sass'],
