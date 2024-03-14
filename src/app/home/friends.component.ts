@@ -57,7 +57,7 @@ export class FriendsComponent implements OnInit {
     let testPost = new Post('Albert Einstein')
     testPost.content = 'Sample post content...'
     testPost.stat = PostStat.DOUBLE_CHECK
-    this.posts = [testPost]
+    this.posts = [testPost, testPost, testPost]
   }
 
   onFocus (v: boolean = false) {
