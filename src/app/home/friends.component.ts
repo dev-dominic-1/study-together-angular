@@ -60,6 +60,10 @@ export class FriendsComponent implements OnInit {
     this.posts = [testPost]
   }
 
+  onFocus (v: boolean = false) {
+    console.log('FOCUS', v)
+  }
+
   contentSelectorDisplayFn (input: string) {
     const match = ContentOptions.values.find(v => v.key === input)
     if (match) return match.text

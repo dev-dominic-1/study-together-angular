@@ -11,6 +11,23 @@ body
 .mat-mdc-form-field-focus-overlay
   background: none !important
 
+mat-select
+  &.mat-select-no-drop-arrow .mat-mdc-select-arrow
+    display: none
+  &:has(.mat-select-custom-arrow)
+    position: relative
+    & .mat-select-custom-arrow
+      position: absolute
+      top: 50%
+      right: 0
+      transform: translateY(-50%)
+      transition: all 0.15s ease-in-out
+    &:focus .mat-select-custom-arrow
+      transform: translateY(-50%) rotate(-180deg)
+      &:not(.reverse-rotation)
+        transform: translateY(-50%) rotate(180deg)
+
+
 .background
   background-color: $app-background-color !important
 

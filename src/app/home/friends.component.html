@@ -1,9 +1,10 @@
 <div class="primary-content-page-wrapper">
   <div class="content-selector-wrapper">
     <mat-form-field>
-      <mat-select [formControl]="stateCtrl">
+      <mat-select class="mat-select-no-drop-arrow" [formControl]="stateCtrl" (focusin)="onFocus(true)" (focusout)="onFocus()">
         <mat-select-trigger>
           {{ contentOptionsMap[contentOption] ?? 'None Selected' }}
+          <mat-icon class="mat-select-custom-arrow">expand_more</mat-icon>
         </mat-select-trigger>
         @for (option of ContentOptions.values; track option.key) {
           <mat-option [value]="option.key" [disabled]="option.disabled">{{ option.text }}</mat-option>
