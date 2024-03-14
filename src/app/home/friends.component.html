@@ -6,7 +6,7 @@
           {{ contentOptionsMap[contentOption] ?? 'None Selected' }}
         </mat-select-trigger>
         @for (option of ContentOptions.values; track option.key) {
-          <mat-option [value]="option.key">{{ option.text }}</mat-option>
+          <mat-option [value]="option.key" [disabled]="option.disabled">{{ option.text }}</mat-option>
         }
       </mat-select>
     </mat-form-field>

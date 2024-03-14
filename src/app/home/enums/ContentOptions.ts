@@ -5,7 +5,7 @@ export enum ContentOptionsEnum {
 
 export class ContentOptions {
 
-  static readonly MOST_RECENT = new ContentOptions(ContentOptionsEnum.MOST_RECENT, 'Most Recent')
+  static readonly MOST_RECENT = new ContentOptions(ContentOptionsEnum.MOST_RECENT, 'Most Recent', true)
   static readonly MOST_RELEVANT = new ContentOptions(ContentOptionsEnum.MOST_RELEVANT, 'Most Relevant')
 
   static readonly values: ContentOptions[] = [ContentOptions.MOST_RECENT, ContentOptions.MOST_RELEVANT]
@@ -16,10 +16,12 @@ export class ContentOptions {
 
   key!: string
   text!: string
+  disabled: boolean = false
 
-  constructor(key: string, text: string) {
+  constructor(key: string, text: string, disabled: boolean = false) {
     this.key = key
     this.text = text
+    this.disabled = disabled
   }
 
 }
