@@ -1,6 +1,5 @@
 @use "sass:map"
 @import "../../styles.background-variables"
-$background-config: $background-image-config-1
 \:host::ng-deep .mat-mdc-tab-body-content
   overflow-x: hidden
 
@@ -8,9 +7,7 @@ $background-config: $background-image-config-1
   height: 48px
 
 .route-page-wrapper
-  background: map.get($background-config, "image")
-  background-position: map.get($background-config, "position")
-  background-size: map.get($background-config, "size")
+  @include background-config-1
   &::ng-deep
     & mat-tab-header
       width: min-content
