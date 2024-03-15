@@ -76,6 +76,7 @@ export class NavRouteComponent implements OnInit {
     if (this.loginRequired && !overrideLogin) { // Intercept nav if login is required
       let config = new MatDialogConfig()
       config.maxWidth = '100%' // Prevent horizontal scrolling and fit content
+      config.autoFocus = false // Prevent default autofocus handling
       let ref = this.dialog.open(LoginDialogComponent, config)
       ref.componentInstance.onSuccess.subscribe((data) => {
         console.log('CAPTURED EVENT', data)

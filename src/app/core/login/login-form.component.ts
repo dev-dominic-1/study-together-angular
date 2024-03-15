@@ -12,6 +12,8 @@ import {MatError, MatFormField, MatLabel, MatSuffix} from "@angular/material/for
 import {MatInput} from "@angular/material/input";
 import {MatIcon} from "@angular/material/icon";
 import {MatRipple} from "@angular/material/core";
+import {MatTab, MatTabGroup} from "@angular/material/tabs";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   standalone: true,
@@ -26,7 +28,10 @@ import {MatRipple} from "@angular/material/core";
     ReactiveFormsModule,
     MatIcon,
     MatSuffix,
-    MatRipple
+    MatRipple,
+    MatTabGroup,
+    MatTab,
+    MatButton
   ],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.sass'
@@ -34,6 +39,13 @@ import {MatRipple} from "@angular/material/core";
 export class LoginFormComponent {
 
   tab: number = 0
+  tabs: LoginFormTabs[] = [
+    LoginFormTabs.EMAIL,
+    LoginFormTabs.REGISTER,
+    LoginFormTabs.PASSWORD,
+    LoginFormTabs.PROFILE,
+    LoginFormTabs.BIO
+  ]
   form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]],
@@ -51,4 +63,12 @@ export class LoginFormComponent {
 
   constructor(private fb: FormBuilder) {}
 
+}
+
+export enum LoginFormTabs {
+  EMAIL = 'EMAIL',
+  REGISTER = 'REGISTER',
+  PASSWORD = 'PASSWORD',
+  PROFILE = 'PROFILE',
+  BIO = 'BIO'
 }
