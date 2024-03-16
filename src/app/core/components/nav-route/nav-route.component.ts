@@ -6,9 +6,8 @@ import {NgClass} from "@angular/common";
 import {MatIcon, MatIconModule} from "@angular/material/icon";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {LoginDialogComponent} from "../../login/login-dialog.component";
-import {animate, style} from "@angular/animations";
-import AnimationBuilder from "../../animations/AnimationBuilder";
 import {growXAnimation} from "../../animations/animations";
+import {LoginFormComponent, LoginFormTabs} from "../../login/login-form.component";
 
 @Component({
   standalone: true,
@@ -77,8 +76,25 @@ export class NavRouteComponent implements OnInit {
       let config = new MatDialogConfig()
       config.maxWidth = '100%' // Prevent horizontal scrolling and fit content
       config.autoFocus = false // Prevent default autofocus handling
-      let ref = this.dialog.open(LoginDialogComponent, config)
-      ref.componentInstance.onSuccess.subscribe((data) => {
+      let {componentInstance} = this.dialog.open(LoginDialogComponent, config)
+      componentInstance.onClickBack
+        .subscribe(({formRef, fromTab}) => {
+          if (formRef == null || fromTab == null) return
+          switch (fromTab) {
+            case LoginFormTabs.PASSWORD:
+              formRef.tab = formRef.tabIndex(LoginFormTabs.EMAIL)
+              break
+            case LoginFormTabs.BIO:
+              break
+            default:
+              console.log('SET TAB')
+              formRef.tab = 1
+          }
+        })
+      componentInstance.onClickClose.subscribe((data) => {
+        this.dialog.closeAll()
+      })
+      componentInstance.onSuccess.subscribe((data) => {
         console.log('CAPTURED EVENT', data)
       })
     } else {

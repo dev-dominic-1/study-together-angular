@@ -7,7 +7,7 @@ import {MatButton, MatIconButton} from "@angular/material/button";
 import Grid from "../../interface/grid.component";
 import {GridSpacer} from "../../interface/grid-spacer.component";
 import {MatDialogActions, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
-import {LoginFormComponent} from "./login-form.component";
+import {LoginFormComponent, LoginFormTabs} from "./login-form.component";
 import {MatIcon} from "@angular/material/icon";
 
 @Component({
@@ -20,6 +20,8 @@ import {MatIcon} from "@angular/material/icon";
 export class LoginDialogComponent {
   @Input({required: true}) successCallback!: Function
   @Output() onSuccess: EventEmitter<any> = new EventEmitter()
+  @Output() onClickClose: EventEmitter<any> = new EventEmitter()
+  @Output() onClickBack: EventEmitter<{formRef: LoginFormComponent, fromTab: LoginFormTabs}> = new EventEmitter()
 
   form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -30,8 +32,15 @@ export class LoginDialogComponent {
 
   constructor(private fb: FormBuilder) {}
 
+  close () {
+    this.onClickClose.emit()
+  }
+
   attemptSignIn () {
+    console.log('ATTEMPT SIGN IN')
     this.form.markAllAsTouched()
     if (!this.form.invalid) this.onSuccess.emit(this.form.value)
   }
+
+  protected readonly LoginFormTabs = LoginFormTabs;
 }

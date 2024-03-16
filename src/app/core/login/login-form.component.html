@@ -11,7 +11,13 @@
             <mat-error>Please provide a valid email address</mat-error>
           }
         </mat-form-field>
-        <button mat-raised-button color="primary" class="large mt-2 mb-6">
+        <button
+          mat-raised-button
+          color="primary"
+          class="large mt-2 mb-6"
+          (click)="attemptSignIn()
+"
+        >
           <span>Continue</span>
         </button>
         <div class="alt-sign-in-container">

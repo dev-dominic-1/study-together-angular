@@ -1,12 +1,17 @@
 <div class="dialog-header mat-body-1 pa-2">
-  <button mat-icon-button [disabled]="true" [autofocus]="false">
+  <button
+    mat-icon-button
+    [disabled]="form.tab === form.tabIndex(LoginFormTabs.EMAIL)"
+    [autofocus]="false"
+    (click)="onClickBack.emit({formRef: form, fromTab: form.tabs[form.tab]})"
+  >
     <mat-icon>arrow_back</mat-icon>
   </button>
   Sign In or Sign Up
-  <button mat-icon-button>
+  <button mat-icon-button (click)="onClickClose.emit()">
     <mat-icon>close</mat-icon>
   </button>
 </div>
 <mat-dialog-content class="dialog">
-  <login-form />
+  <login-form #form />
 </mat-dialog-content>

@@ -63,6 +63,14 @@ export class LoginFormComponent {
 
   constructor(private fb: FormBuilder) {}
 
+  tabIndex (tab: LoginFormTabs) {
+    return this.tabs.findIndex(t => t === tab)
+  }
+
+  attemptSignIn () {
+    this.tab = this.tabIndex(LoginFormTabs.PASSWORD)
+  }
+
 }
 
 export enum LoginFormTabs {
