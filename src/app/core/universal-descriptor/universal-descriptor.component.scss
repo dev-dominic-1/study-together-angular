@@ -1,6 +1,16 @@
 @import "../../../styles";
 @import "../../../styles.background-variables.scss";
 
+#iframe-container:has(>#iframe-loader) {
+  position: relative;
+  &>#iframe-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
 mat-card-title {
   z-index: 2;
   display: flex;
@@ -24,11 +34,6 @@ mat-dialog-content {
     &>mat-card-content {
       padding: 0 !important;
     }
-  }
-  & iframe {
-    border: none;
-    width: calc(100% - 2px);
-    height: 100%;
   }
 }
 
