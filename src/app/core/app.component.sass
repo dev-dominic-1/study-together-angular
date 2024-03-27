@@ -70,3 +70,13 @@
       $size: 38px
       height: $size
       width: $size
+
+@media (width >= $mobile-breakpoint) and (height <= 625px)
+  #navigation-content
+    justify-content: space-around
+    &::ng-deep mat-card-content
+      padding: 0
+  #info-access
+    z-index: 5
+    left: unset
+    right: 22px
