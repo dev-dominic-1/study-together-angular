@@ -19,6 +19,11 @@
     width: 0
   scrollbar-width: none
 
+#info-access
+  position: fixed
+  bottom: 24px
+  left: 24px
+
 // Handle navigation bar AND nav-route elements here
 @media (width <= $tablet-breakpoint)
   .app-grid-layout::ng-deep
@@ -30,6 +35,8 @@
         justify-self: center !important
       grid-template-columns: 1fr !important
       padding: 0 12px !important
+  #info-access
+    left: 22px
 
 @media (width <= $mobile-breakpoint)
   .app-grid-layout
@@ -47,8 +54,17 @@
       border-radius: 15px 15px 0 0
       box-shadow: 0 5px 15px gray
       z-index: 10
+      &::ng-deep mat-card-content:first-child
+        padding-left: 0
+        padding-right: 0
 
     &::ng-deep .route-page-wrapper>div:last-child
       padding-bottom: 48px
 
-
+  #info-access
+    top: 8px
+    left: 24px
+    & button
+      $size: 38px
+      height: $size
+      width: $size

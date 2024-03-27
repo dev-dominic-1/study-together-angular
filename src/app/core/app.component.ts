@@ -8,18 +8,21 @@ import {MatRipple} from "@angular/material/core";
 import {NavRouteComponent} from "./components/nav-route/nav-route.component";
 import {routes, mobileRoutes} from "./app.routes";
 import {MatIcon} from "@angular/material/icon";
-import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {UniversalDescriptorComponent} from "./universal-descriptor/universal-descriptor.component";
+import {MatFabButton, MatIconButton} from "@angular/material/button";
+import {NgStyle} from "@angular/common";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginDialogComponent, MatDialogModule, Grid, FontAwesomeModule, MatCard, MatCardContent, MatRipple, NavRouteComponent, MatIcon],
+  imports: [RouterOutlet, LoginDialogComponent, MatDialogModule, Grid, FontAwesomeModule, MatCard, MatCardContent, MatRipple, NavRouteComponent, MatIcon, MatIconButton, MatFabButton, NgStyle],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass'
 })
 export class AppComponent implements OnInit {
   title = 'study-together-angular';
+  appInfoDialog!:MatDialogRef<any>
 
   _routes!: Route[] // Routes to be used in navigation menu
 
@@ -29,10 +32,12 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      const ref = this.dialog.open(UniversalDescriptorComponent, {autoFocus: false})
-      ref.componentInstance.onClickClose.subscribe(() => ref.close())
-    }, 500)
+    setTimeout(() => this.openAppInfo(), 500)
+  }
+
+  openAppInfo() {
+    this.appInfoDialog = this.dialog.open(UniversalDescriptorComponent, {autoFocus: false})
+    this.appInfoDialog.componentInstance.onClickClose.subscribe(() => this.appInfoDialog.close())
   }
 
   private setRoutes() {
