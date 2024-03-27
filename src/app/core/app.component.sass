@@ -35,6 +35,8 @@
         justify-self: center !important
       grid-template-columns: 1fr !important
       padding: 0 12px !important
+  #info-access
+    left: 22px
 
 @media (width <= $mobile-breakpoint)
   .app-grid-layout
@@ -56,4 +58,10 @@
     &::ng-deep .route-page-wrapper>div:last-child
       padding-bottom: 48px
 
-
+  #info-access
+    top: 8px
+    left: 24px
+    & button
+      $size: 38px
+      height: $size
+      width: $size
