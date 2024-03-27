@@ -1,0 +1,45 @@
+@import "../../../styles";
+@import "../../../styles.background-variables.scss";
+
+mat-card-title {
+  z-index: 2;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 4px;
+  &>.spacer {
+    width: 99%;
+  }
+}
+
+mat-dialog-content {
+  width: 50dvw;
+  height: 60dvh;
+  overflow: hidden; // Let the iframe handle this
+  padding: 0 !important;
+  &>mat-card {
+    background-color: $app-background-color;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+    &>mat-card-content {
+      padding: 0 !important;
+    }
+  }
+  & iframe {
+    border: none;
+    width: calc(100% - 2px);
+    height: 100%;
+  }
+}
+
+@media (width <= $tablet-breakpoint) {
+  mat-dialog-content {
+    width: 65dvw;
+  }
+}
+
+@media (width <= $mobile-breakpoint) {
+  mat-dialog-content {
+    width: 80dvw;
+  }
+}

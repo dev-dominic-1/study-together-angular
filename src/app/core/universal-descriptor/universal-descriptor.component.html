@@ -1,0 +1,16 @@
+<mat-dialog-content>
+  <mat-card>
+    <mat-card-title class="mat-elevation-z2">
+      <div class="spacer"></div>
+      <button mat-icon-button (click)="onClickClose.emit()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-card-title>
+    <mat-card-content>
+      <iframe
+        [id]="contentId"
+        src="https://master--study-together-universal-descriptor.netlify.app/"
+      ></iframe>
+    </mat-card-content>
+  </mat-card>
+</mat-dialog-content>
