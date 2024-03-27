@@ -48,7 +48,7 @@ const _routes: {[key: string]: Route} = {
     data: {
       icon: 'account_circle',
       text: 'Account',
-      loginRequired: true,
+      // loginRequired: true, TODO: Reimplement this once API+DB are hosted
     }
   },
   'create-post': {
@@ -57,7 +57,7 @@ const _routes: {[key: string]: Route} = {
     data: {
       icon: 'add_box',
       text: 'Create Post',
-      disabled: false,
+      disabled: true,
     }
   }
 }

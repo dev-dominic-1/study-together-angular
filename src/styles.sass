@@ -98,40 +98,45 @@ mat-icon
       height: $size
       width: $size
 
+@for $i from 1 through 10
+  $weight: #{$i * 100}
+  .font-weight-#{$weight}
+    font-weight: $weight !important
+
 @for $i from 0 through 24
   $px: #{$i * 4px}
   .pa-#{$i}
-    padding: $px
+    padding: $px !important
   .px-#{$i}
-    padding-left: $px
-    padding-right: $px
+    padding-left: $px !important
+    padding-right: $px !important
   .py-#{$i}
-    padding-top: $px
-    padding-bottom: $px
+    padding-top: $px !important
+    padding-bottom: $px !important
   .pt-#{$i}
-    padding-top: $px
+    padding-top: $px !important
   .pr-#{$i}
-    padding-right: $px
+    padding-right: $px !important
   .pb-#{$i}
-    padding-bottom: $px
+    padding-bottom: $px !important
   .pl-#{$i}
-    padding-left: $px
+    padding-left: $px !important
   .ma-#{$i}
-    margin: $px
+    margin: $px !important
   .mx-#{$i}
-    margin-left: $px
-    margin-right: $px
+    margin-left: $px !important
+    margin-right: $px !important
   .my-#{$i}
-    margin-top: $px
-    margin-bottom: $px
+    margin-top: $px !important
+    margin-bottom: $px !important
   .mt-#{$i}
-    margin-top: $px
+    margin-top: $px !important
   .mr-#{$i}
-    margin-right: $px
+    margin-right: $px !important
   .mb-#{$i}
-    margin-bottom: $px
+    margin-bottom: $px !important
   .ml-#{$i}
-    margin-left: $px
+    margin-left: $px !important
 
 @for $i from 0 through 6
   $px: #{$i * 5px}
