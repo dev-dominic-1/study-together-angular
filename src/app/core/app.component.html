@@ -4,17 +4,6 @@
       @for(route of _routes; track route.path) {
         <nav-route [route]="route" />
       }
-      <div id="info-access">
-        <button mat-fab color="primary" (click)="openAppInfo()">
-          <img
-            src="assets/Icons/information-variant-custom.png"
-            alt="info"
-            [ngStyle]="{
-              height: '32px'
-            }"
-          >
-        </button>
-      </div>
     </div>
     <div id="router-content">
       <router-outlet />
@@ -25,4 +14,15 @@
     <div id="collapsible-navigation-activator-background-element"></div>
     <mat-icon>arrow_right</mat-icon>
   </div>
+</div>
+<div id="info-access">
+  <button mat-fab color="primary" (click)="openAppInfo()">
+    <img
+      src="assets/Icons/information-variant-custom.png"
+      alt="info"
+      [ngStyle]="{
+        height: '32px'
+      }"
+    >
+  </button>
 </div>

@@ -6,11 +6,12 @@
         <mat-icon>close</mat-icon>
       </button>
     </mat-card-title>
-    <mat-card-content>
-      <iframe
-        [id]="contentId"
-        src="https://master--study-together-universal-descriptor.netlify.app/"
-      ></iframe>
+    <mat-card-content id="iframe-container">
+      @if(frameLoading) {
+        <div id="iframe-loader">
+          <mat-progress-bar mode="indeterminate" />
+        </div>
+      }
     </mat-card-content>
   </mat-card>
 </mat-dialog-content>
