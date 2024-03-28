@@ -16,12 +16,23 @@
   }
 }
 
+@mixin get-content-width() {
+  width: 80%;
+  @media (width <= $tablet-breakpoint) {
+    width: 90%;
+  }
+  @media (width <= $mobile-breakpoint) {
+    width: 95%;
+  }
+}
+
+
 #account-header {
   position: relative;
   display: grid;
   grid-template-columns: auto 1fr;
   grid-column-gap: 32px;
-  width: 80%;
+  @include get-content-width();
   margin: auto;
   &>#profile-photo {
     $slide-length: 65px;
@@ -74,7 +85,63 @@
   }
 }
 
+#account-content {
+  display: grid;
+  grid-template-columns: 3fr 5fr;
+  grid-column-gap: 24px;
+  @include get-content-width();
+  margin: auto;
+  &>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  & .content-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &>#profile-left-column {
+    container: left-column / inline-size;
+    & .card-container {
+      $gap: 12px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: $gap;
+      &::ng-deep  {
+        & friend-card {
+          width: calc(33% - $gap * 2 / 3)
+        }
+      }
+    }
+  }
+  &>#profile-right-column {
+    &>.content-header {
+      margin-top: 6px; // Pull this into alignment with "Friends" text
+    }
+    &>#profile-post-cards::ng-deep post-card>mat-card {
+      margin-bottom: 24px;
+    }
+  }
+}
+
 .route-page-wrapper {
   @include background-config-2();
   background-position-y: -250px;
+  &>.breathing-room {
+    height: 48px;
+  }
+}
+
+@container left-column (width <= 400px) {
+  #profile-friend-card-container {
+    justify-content: space-around;
+    $gap: 6px;
+    gap: $gap !important;
+    & friend-card {
+      width: calc(50% - $gap / 2) !important;
+    }
+  }
 }

@@ -28,4 +28,39 @@
       </div>
     </div>
   </div>
+  <div id="account-content">
+    <div id="profile-left-column">
+      <div class="content-header">
+        <div class="mat-headline-2 mb-0">Friends</div>
+        <button mat-button color="primary">
+          <span class="font-weight-700">See All Friends</span>
+        </button>
+      </div>
+      <div class="column-header width-100 align-items-center">
+        <div class="mat-body-2 mb-0 mt-1">12 Friends</div>
+      </div>
+      <div id="profile-friend-card-container" class="card-container pt-3">
+        @for(friend of friends; track friend) {
+          <friend-card [friend]="friend" />
+        }
+      </div>
+      <div class="content-header mt-10">
+        <div class="mat-headline-2 mb-0">Favorites</div>
+        <button mat-button color="primary">
+          <span class="font-weight-700">See All Favorites</span>
+        </button>
+      </div>
+    </div>
+    <div id="profile-right-column">
+      <div class="content-header">
+        <div class="mat-headline-2 mb-10">Posts</div>
+      </div>
+      <div id="profile-post-cards" class="width-100">
+        @for(post of posts; track post) {
+          <post-card [post]="post" />
+        }
+      </div>
+    </div>
+  </div>
+  <div class="breathing-room"></div>
 </div>

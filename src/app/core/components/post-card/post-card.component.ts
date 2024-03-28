@@ -24,7 +24,4 @@ import {PostStatIconComponent} from "./post-stat-icon/post-stat-icon.component";
 })
 export class PostCardComponent {
   @Input({required: true}) post!:Post
-
-
-
 }

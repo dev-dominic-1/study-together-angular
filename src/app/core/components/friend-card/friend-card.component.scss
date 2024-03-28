@@ -1,0 +1,27 @@
+:host {
+  max-width: 150px;
+}
+
+mat-card {
+  max-width: fit-content;
+  $border-radius: 16px;
+  border-radius: calc($border-radius + 2px);
+  box-shadow: -3px -3px 32px rgba(0, 0, 0, 0.16) inset, 8px 11px 11px rgba(248, 202, 82, 0.16) inset, 0 8px 11px rgba(0, 0, 0, 0.25);
+  mat-card-content {
+    display: grid;
+    grid-template-rows: 4fr 3fr;
+    padding: 0 !important;
+    & img {
+      width: 100%;
+      height: 100%;
+      border-radius: $border-radius $border-radius 5px 5px;
+    }
+    &>div:last-child { // Friend `Name`
+      word-break: break-word;
+      line-height: 22px;
+      padding: 12px 8px;
+      font-weight: 500;
+      font-size: 18px;
+    }
+  }
+}
