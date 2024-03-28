@@ -42,9 +42,9 @@ export class AccountComponent {
   ]
 
   posts: Post[] = [
-    new Post('Troy Barnes', '16 Hours Ago', 'Can I get some feedback on this essay I wrote for Spanish?', [], PostStat.BOOKMARK),
-    new Post('Troy Barnes', '16 Hours Ago', 'Can I get some feedback on this essay I wrote for Spanish?', [], PostStat.BOOKMARK),
-    new Post('Troy Barnes', '16 Hours Ago', 'Can I get some feedback on this essay I wrote for Spanish?', [], PostStat.BOOKMARK)
+    new Post('Troy Bennett', '16 Hours Ago', 'Can I get some feedback on this essay I wrote for Spanish?', [], PostStat.BOOKMARK),
+    new Post('Troy Bennett', '16 Hours Ago', 'Can I get some feedback on this essay I wrote for Spanish?', [], PostStat.BOOKMARK),
+    new Post('Troy Bennett', '16 Hours Ago', 'Can I get some feedback on this essay I wrote for Spanish?', [], PostStat.BOOKMARK)
   ]
 
 }
