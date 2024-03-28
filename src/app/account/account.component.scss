@@ -111,7 +111,7 @@
       flex-wrap: wrap;
       gap: $gap;
       &::ng-deep  {
-        & friend-card {
+        & friend-card, &>img {
           width: calc(33% - $gap * 2 / 3)
         }
       }
@@ -140,7 +140,7 @@
     justify-content: space-around;
     $gap: 6px;
     gap: $gap !important;
-    & friend-card {
+    & friend-card, &>img {
       width: calc(50% - $gap / 2) !important;
     }
   }

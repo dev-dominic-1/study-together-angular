@@ -50,6 +50,11 @@
           <span class="font-weight-700">See All Favorites</span>
         </button>
       </div>
+      <div id="profile-favorite-card-container" class="card-container pt-3">
+        @for(favorite of favorites; track favorite) {
+          <img [src]="favorite.photoUrl" [alt]="favorite.title">
+        }
+      </div>
     </div>
     <div id="profile-right-column">
       <div class="content-header">
