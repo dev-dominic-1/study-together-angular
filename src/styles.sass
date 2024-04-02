@@ -5,6 +5,36 @@ body
   overflow: hidden
   background-color: $app-background-color
 
+.background-fill
+  background-color: $app-background-color !important
+
+@for $i from 0 through 4
+  $opacity: #{$i * 25}
+  .background-fill-#{$opacity}
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      z-index: -1
+      top: 0
+      left: 0
+      height: 100%
+      width: 100%
+      opacity: calc($opacity / 100)
+      background-color: $app-background-color
+      border-radius: inherit
+
+
+.d-flex
+  display: flex
+
+$justifications: start, center, end, space-around, space-between
+$justification-targets: self, content, items
+@each $justification in $justifications
+  @each $target in $justification-targets
+    .justify-#{$target}-#{$justification}
+      justify-#{$target}: $justification
+
 .mdc-text-field--filled:not(.mdc-text-field--disabled)
   background: none !important
 
@@ -147,3 +177,19 @@ mat-icon
   $width: #{$i * 10%}
   .width-#{$i * 10}
     width: $width
+
+$current-breakpoint-var: --current-breakpoint
+body
+  #{$current-breakpoint-var}: desktop
+@media (width <= $compact-desktop)
+  body
+    #{$current-breakpoint-var}: compact-desktop
+@media (width <= $tablet-breakpoint)
+  body
+    #{$current-breakpoint-var}: tablet
+@media (width <= $mobile-breakpoint)
+  body
+    #{$current-breakpoint-var}: mobile
+@media (width <= $mobile-xs-breakpoint)
+  body
+    #{$current-breakpoint-var}: mobile-xs

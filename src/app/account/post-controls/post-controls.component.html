@@ -1,0 +1,12 @@
+<div
+  class="d-flex"
+  style="gap: 12px"
+  [ngClass]="['justify-content-' + justification, block ? 'block' : '']"
+>
+  <button mat-stroked-button color="primary" class="large rounded-2 background-fill-50">
+    <span class="px-3">Edit Profile</span>
+  </button>
+  <button mat-raised-button color="primary" class="large rounded-2">
+    <span class="px-3 font-weight-400">+ New Post</span>
+  </button>
+</div>

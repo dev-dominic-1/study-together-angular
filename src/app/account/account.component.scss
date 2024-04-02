@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "../../theme/theme" as theme;
+@import "../../styles.rwd";
 @import "../../styles.background-variables";
 
 #account-cover-photo {
@@ -18,6 +19,7 @@
 
 @mixin get-content-width() {
   width: 80%;
+  margin: auto;
   @media (width <= $tablet-breakpoint) {
     width: 90%;
   }
@@ -127,6 +129,11 @@
   }
 }
 
+#alt-bio-content {
+  @include get-content-width();
+  transform: translateY(-44px); // Tighten space between translated image and this content
+}
+
 .route-page-wrapper {
   @include background-config-2();
   background-position-y: -250px;
@@ -135,13 +142,36 @@
   }
 }
 
+#profile-friend-card-container, #profile-favorite-card-container {
+  justify-content: space-around;
+}
+
 @container left-column (width <= 400px) {
   #profile-friend-card-container {
-    justify-content: space-around;
     $gap: 6px;
     gap: $gap !important;
     & friend-card, &>img {
       width: calc(50% - $gap / 2) !important;
+    }
+  }
+}
+
+@media (width <= $compact-desktop) {
+  #profile-photo {
+    $size: 200px;
+    height: $size !important;
+    width: $size !important;
+  }
+  #account-content {
+    grid-template-columns: 1fr !important; // Transition to single-column layout
+  }
+  #profile-friend-card-container, #profile-favorite-card-container {
+    flex-wrap: nowrap !important;
+  }
+  #profile-right-column {
+    padding-top: 32px;
+    & .content-header>div {
+      margin-bottom: 16px !important;
     }
   }
 }
