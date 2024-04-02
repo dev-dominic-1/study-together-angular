@@ -7,54 +7,74 @@
       <img src="assets/Images/Desktop/Profile/2x/Profile-Profile-Picture-Desktop2x.jpg" alt="Profile Picture">
     </div>
     <div id="profile-context">
-      <div class="horizontal-grid">
+      <div [ngClass]="{'horizontal-grid': currentBreakpoint === BREAKPOINT_OPTIONS.DESKTOP}">
         <div>
           <div class="mat-headline-3 mb-2">Troy Bennett</div>
           <div class="mat-body-1 mb-1">Greendale Community College</div>
           <div class="mat-body-1">Air Conditioning Repair</div>
         </div>
-        <div class="d-flex">
-          <button mat-stroked-button color="primary" class="large rounded-2">
-            <span class="px-3">Edit Profile</span>
-          </button>
-          <button mat-raised-button color="primary" class="large rounded-2">
-            <span class="px-3 font-weight-400">+ New Post</span>
-          </button>
+        @if(currentBreakpoint === BREAKPOINT_OPTIONS.DESKTOP) {
+          <post-controls id="primary-post-controls" />
+        }
+      </div>
+      @if(currentBreakpoint === BREAKPOINT_OPTIONS.DESKTOP) {
+        <div id="bio-content" class="mat-body-2">
+          <div class="pb-4">
+            {{ bioContent }}
+          </div>
         </div>
-      </div>
-      <div class="mat-body-2">
-        Let's join forces and navigate this academic adventure together! 🚀
-        🤝 #StudentLife #ClassOf2026 #FutureLeadership 🌟
-      </div>
+      }
     </div>
   </div>
+  @if(currentBreakpoint !== BREAKPOINT_OPTIONS.DESKTOP) {
+    <div id="alt-bio-content" class="mat-body-2">
+      <div class="pb-4">
+        {{ bioContent }}
+      </div>
+      <post-controls id="alt-post-controls" [block]="true" />
+    </div>
+  }
   <div id="account-content">
     <div id="profile-left-column">
       <div class="content-header">
         <div class="mat-headline-2 mb-0">Friends</div>
-        <button mat-button color="primary">
-          <span class="font-weight-700">See All Friends</span>
-        </button>
+        @if(!breakpointMobileOrLess()) {
+          <button mat-button color="primary">
+            <span class="font-weight-700">See All Friends</span>
+          </button>
+        }
       </div>
       <div class="column-header width-100 align-items-center">
         <div class="mat-body-2 mb-0 mt-1">12 Friends</div>
       </div>
       <div id="profile-friend-card-container" class="card-container pt-3">
-        @for(friend of friends; track friend) {
+        @for(friend of displayFriends; track friend) {
           <friend-card [friend]="friend" />
         }
       </div>
+      @if(breakpointMobileOrLess()) {
+        <button mat-stroked-button color="primary" class="width-100 large mt-3 rounded-2 background-fill-50">
+          See All Friends
+        </button>
+      }
       <div class="content-header mt-10">
         <div class="mat-headline-2 mb-0">Favorites</div>
-        <button mat-button color="primary">
-          <span class="font-weight-700">See All Favorites</span>
-        </button>
-      </div>
-      <div id="profile-favorite-card-container" class="card-container pt-3">
-        @for(favorite of favorites; track favorite) {
-          <img [src]="favorite.photoUrl" [alt]="favorite.title">
+        @if(!breakpointMobileOrLess()) {
+          <button mat-button color="primary">
+            <span class="font-weight-700">See All Favorites</span>
+          </button>
         }
       </div>
+      <div id="profile-favorite-card-container" class="card-container pt-3">
+        @for(favorite of displayFavorites; track favorite) {
+          <favorite-card [src]="favorite.photoUrl" [alt]="favorite.title" />
+        }
+      </div>
+      @if(breakpointMobileOrLess()) {
+        <button mat-stroked-button color="primary" class="width-100 large mt-3 rounded-2 background-fill-50">
+          See All Favorites
+        </button>
+      }
     </div>
     <div id="profile-right-column">
       <div class="content-header">
