@@ -8,22 +8,10 @@ body
 .background-fill
   background-color: $app-background-color !important
 
-@for $i from 0 through 4
+@for $i from 1 through 4
   $opacity: #{$i * 25}
   .background-fill-#{$opacity}
-    position: relative
-    &::before
-      content: ''
-      position: absolute
-      z-index: -1
-      top: 0
-      left: 0
-      height: 100%
-      width: 100%
-      opacity: calc($opacity / 100)
-      background-color: $app-background-color
-      border-radius: inherit
-
+    background-color: rgba($app-background-color, calc($opacity / 100)) !important
 
 .d-flex
   display: flex

@@ -30,7 +30,6 @@ export class BreakpointService implements OnDestroy {
    * @private
    */
   private updateBreakpoint(): void {
-    console.log('UPDATING')
     const temp: string = window.getComputedStyle(document.getElementsByTagName('body')[0])
       .getPropertyValue('--current-breakpoint')
     this.currentBreakpointListener.next(temp)

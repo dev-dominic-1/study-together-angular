@@ -24,7 +24,7 @@
     width: 90%;
   }
   @media (width <= $mobile-breakpoint) {
-    width: 95%;
+    width: 92%;
   }
 }
 
@@ -173,5 +173,15 @@
     & .content-header>div {
       margin-bottom: 16px !important;
     }
+  }
+}
+
+@media (width <= $mobile-breakpoint) {
+  #account-header {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 130px auto;
+  }
+  #alt-bio-content {
+    transform: unset;
   }
 }
